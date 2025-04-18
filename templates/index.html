@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>城市与ROI分析系统</title></head>
+<body style="font-family:sans-serif;padding:20px;">
+    <h2>🏙 城市参数</h2>
+    <form method="POST">
+    <input type="hidden" name="sheet" value="city"/>
+    <table border="1"><tr><th>#</th>
+        {% for h in headers %}<th>{{ h }}</th>{% endfor %}
+        <th>字段</th><th>值</th><th>操作</th></tr>
+        {% for row in cities %}
+        <tr><td>{{ loop.index0 }}</td>
+        {% for h in headers %}<td>{{ row[h] }}</td>{% endfor %}
+        <td><input name="field"></td><td><input name="value"></td>
+        <td><button name="index" value="{{ loop.index0 }}">更新</button></td>
+        </tr>{% endfor %}
+    </table></form>
+
+    <h2 style="margin-top:50px;">📦 产品ROI结构</h2>
+    <form method="POST">
+    <input type="hidden" name="sheet" value="product"/>
+    <table border="1"><tr><th>#</th>
+        {% for h in prod_headers %}<th>{{ h }}</th>{% endfor %}
+        <th>字段</th><th>值</th><th>操作</th></tr>
+        {% for row in products %}
+        <tr><td>{{ loop.index0 }}</td>
+        {% for h in prod_headers %}<td>{{ row[h] }}</td>{% endfor %}
+        <td><input name="field"></td><td><input name="value"></td>
+        <td><button name="index" value="{{ loop.index0 }}">更新</button></td>
+        </tr>{% endfor %}
+    </table></form>
+</body>
+</html>
