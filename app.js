@@ -1,1 +1,0 @@
-// 入口 JS 文件：建议用 React Router 管理多页
